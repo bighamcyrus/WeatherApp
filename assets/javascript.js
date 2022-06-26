@@ -3,7 +3,8 @@ var fetchButton = document.getElementById('submitBtn')
 // var cityInputEL = $("cityinput")
 var APIkey = "c9ecfd644095a0e64da1f579c55a340b"
 let cityName = $("#cityInput").val();
-var searchResultEl = document.querySelector("searchResult")
+var searchResultEl = document.querySelector("#searchResult")
+console.log(searchResultEl)
 
 function getApi(cityName) {
     console.log(cityName)
@@ -29,6 +30,14 @@ function getApi(cityName) {
                         .then(function(data1){
                             console.log(data1)
                             // data1 = searchResultEl (trying to get INFO to populate in the searchResult id and populate on the page)
+                            searchResultEl.textContent = data1
+                            console.log(data1)
+                            // function appendData(data) {
+                                
+                            //     for (var i = 0; i < data.length; i++) {
+                            //       var div = document.createElement("div");
+                            //       div.innerHTML = 'City: ' + data[i].firstName + ' ' + data[i].lastName;
+                            //       searchResultEl.appendChild(div);
                         })
                     }
                 })
