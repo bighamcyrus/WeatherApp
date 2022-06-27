@@ -17,6 +17,15 @@ body {
     padding: 10px;
     
   }
+  #searchResult{
+    margin: 80px;
+    padding: 10px;
+    display: flex;
+    justify-content: row;
+    background-color: rgb(66, 195, 228);
+    font-size: 35px;
+    font: black;
+  }
   #submitBtn{
     background-color: skyblue;
     font: white;

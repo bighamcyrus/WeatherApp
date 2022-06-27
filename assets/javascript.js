@@ -7,7 +7,7 @@ var searchResultEl = document.querySelector("#searchResult")
 console.log(searchResultEl)
 
 function getApi(cityName) {
-    console.log(cityName)
+    // console.log(cityName)
     var cityInputEl = `http://api.openweathermap.org/geo/1.0/direct?q=${cityName}&limit=5&appid=${APIkey}`;
     
   
@@ -16,11 +16,11 @@ function getApi(cityName) {
         if(response.ok){
             response.json()
             .then(function(data){
-                console.log(data)
+                // console.log(data)
                 var lat = data[0].lat
-                console.log(lat)
+                // console.log(lat)
                 var lon = data[0].lon
-                console.log(lon)
+                // console.log(lon)
                 var lonLat = `https://api.openweathermap.org/data/3.0/onecall?lat=${lat}&lon=${lon}&appid=${APIkey}`;
 
                 fetch(lonLat)
@@ -30,14 +30,26 @@ function getApi(cityName) {
                         .then(function(data1){
                             console.log(data1)
                             // data1 = searchResultEl (trying to get INFO to populate in the searchResult id and populate on the page)
-                            searchResultEl.textContent = data1
-                            console.log(data1)
+                          
+                            
+
+                            // console.log(data1.current.temp)
+
+                            let p = document.createElement("p");
+                            searchResultEl.appendChild(p)
+
+                            searchResultEl.innerHTML += "Timezone:" + " " + data1.timezone + ", " + " " + "Temp:" + "  " + data1.current.temp +" " + "in Kalvin," + "  " + "Humidity:" +"  "+ data1.current.humidity +"," +"  " + "Cloud Coverag %:" +"  " + data1.current.clouds
+
+
+                            
                             // function appendData(data) {
                                 
                             //     for (var i = 0; i < data.length; i++) {
                             //       var div = document.createElement("div");
-                            //       div.innerHTML = 'City: ' + data[i].firstName + ' ' + data[i].lastName;
+                            //       div.innerHTML = 'City: ' + data[i].temp + ' ' + data[i].;
                             //       searchResultEl.appendChild(div);
+                            // need data to show on the screen for selected city
+                            // need the search to be saved on local storage and put into a list of item
                         })
                     }
                 })
