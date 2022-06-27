@@ -5,7 +5,8 @@ var APIkey = "c9ecfd644095a0e64da1f579c55a340b"
 let cityName = $("#cityInput").val();
 var searchResultEl = document.querySelector("#searchResult")
 console.log(searchResultEl)
-
+var recentSearch = localStorage.getItem("recentSearch")
+// set this item to a local storage and create a list of recent searches
 function getApi(cityName) {
     // console.log(cityName)
     var cityInputEl = `http://api.openweathermap.org/geo/1.0/direct?q=${cityName}&limit=5&appid=${APIkey}`;
@@ -38,7 +39,10 @@ function getApi(cityName) {
                             let p = document.createElement("p");
                             searchResultEl.appendChild(p)
 
-                            searchResultEl.innerHTML += "Timezone:" + " " + data1.timezone + ", " + " " + "Temp:" + "  " + data1.current.temp +" " + "in Kalvin," + "  " + "Humidity:" +"  "+ data1.current.humidity +"," +"  " + "Cloud Coverag %:" +"  " + data1.current.clouds
+                            searchResultEl.innerHTML += "Timezone:" + " " + data1.timezone + ", " + " " + "Temp:" + "  " + data1.current.temp +" " + "in Kalvin," + "  " + "Humidity:" +"  "+ data1.current.humidity +"," +"  " + "Cloud Coverag %:" +"  " + data1.current.clouds;
+
+                            localStorage.setItem(searchResultEl);
+                            
 
 
                             
