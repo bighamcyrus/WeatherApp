@@ -21,7 +21,8 @@ body {
     margin: 80px;
     padding: 10px;
     display: flex;
-    justify-content: row;
+    flex-direction: column;
+    justify-content: space-between;
     background-color: rgb(66, 195, 228);
     font-size: 35px;
     font: black;

@@ -5,9 +5,12 @@ var APIkey = "c9ecfd644095a0e64da1f579c55a340b"
 // Jquery notation
 var UlEl = $("#previousSearchList")
 var searchResultEl = document.querySelector("#searchResult")
+var currentDayEl = document.querySelector("#currentDay")
 console.log(searchResultEl)
 var recentSearch = JSON.parse(localStorage.getItem("recentSearch")) || []
 
+
+currentDayEL.textContent =  moment().format("MMM Do YY");
 // set this item to a local storage and create a list of recent searches
 function getApi(cityName) {
    
@@ -38,18 +41,41 @@ function getApi(cityName) {
 
 
 
-                                            // console.log(data1.current.temp)
+                                            // Create a space for each day of the 5 day forecast to be cast in the coresponding html)
 
                                             let p = document.createElement("p");
                                             searchResultEl.appendChild(p)
 
-                                            searchResultEl.innerHTML += "Timezone:" + " " + data1.timezone + ", " + " " + "Temp:" + "  " + data1.current.temp + "," + " " + "Humidity:" + "  " + data1.current.humidity + "," + "  " + "Cloud Coverag %:" + "  " + data1.current.clouds;
+                                            searchResultEl.innerHTML += cityName + ", " + " " + "Temp:" + "  " + data1.current.temp + "," + " " + "Humidity:" + "  " + data1.current.humidity + "," + "  " + "Wind Speed:" + "  " + data1.current.wind_speed + ", " + " " + "UV Index:" + data1.current.uvi;
 
                                           
-                                           let div = document.createElement("div");
+                                           let div =document.querySelector("#TomorrowForecast");
                                            searchResultEl.appendChild(div)
                                            
-                                           searchResultEl.innerHTML += "5 day forecast" + data1.daily[0].temp.day
+                                           searchResultEl.innerHTML += "Tomorrow's forecast:" + " " + "Temp:" + "  " + data1.daily[1].temp.day + "," + " " + "Humidity:" + "  " + data1.daily[1].humidity + "," + "  " + "Wind Speed:" + "  " + data1.daily[1].wind_speed + ", " + " " + "UV Index:" + data1.daily[1].uvi + " ";
+                                           
+                                           let divTwoDay =document.querySelector("#twoForecast");
+                                           searchResultEl.appendChild(div)
+                                           
+                                           searchResultEl.innerHTML += "3 day forecast:" + " " + "Temp:" + "  " + data1.daily[2].temp.day + "," + " " + "Humidity:" + "  " + data1.daily[2].humidity + "," + "  " + "Wind Speed:" + "  " + data1.daily[2].wind_speed + ", " + " " + "UV Index:" + data1.daily[2].uvi + " ";
+
+                                           let divThreeDay =document.querySelector("#threeForecast");
+                                           searchResultEl.appendChild(div)
+                                           
+                                           searchResultEl.innerHTML += "4 day forecast:" + " " + "Temp:" + "  " + data1.daily[3].temp.day + "," + " " + "Humidity:" + "  " + data1.daily[3].humidity + "," + "  " + "Wind Speed:" + "  " + data1.daily[3].wind_speed + ", " + " " + "UV Index:" + data1.daily[3].uvi + " ";
+
+                                           let divFourDay =document.querySelector("#fourForecast");
+                                           searchResultEl.appendChild(div)
+                                           
+                                           searchResultEl.innerHTML += "5 day forecast:" + " " + "Temp:" + "  " + data1.daily[4].temp.day + "," + " " + "Humidity:" + "  " + data1.daily[4].humidity + "," + "  " + "Wind Speed:" + "  " + data1.daily[4].wind_speed + ", " + " " + "UV Index:" + data1.daily[4].uvi + " ";
+                                           
+                                           
+                                           
+                                           
+                                           
+                                          
+                                           
+                                        //    data1.daily[0].temp.day
                                             // need data to show on the screen for selected city
                                             // need the search to be saved on local storage and put into a list of item
                                         })
