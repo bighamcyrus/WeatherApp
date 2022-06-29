@@ -10,7 +10,7 @@ console.log(searchResultEl)
 var recentSearch = JSON.parse(localStorage.getItem("recentSearch")) || []
 
 
-currentDayEL.textContent =  moment().format("MMM Do YY");
+currentDayEl.textContent =  moment().format("MMM Do YY");
 // set this item to a local storage and create a list of recent searches
 function getApi(cityName) {
    
