@@ -12,4 +12,4 @@ live link to the site:https://bighamcyrus.github.io/WeatherApp/
 
 Github repo for this app is https://github.com/bighamcyrus/WeatherApp
 
-![]./assets/websiteWorkingImage.png
+![](./assets/websiteWorkingImage.png)
